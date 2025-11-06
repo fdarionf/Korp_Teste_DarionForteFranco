@@ -9,7 +9,7 @@ namespace ServicoFaturamento.Controllers
     public class NotasFiscaisController : ControllerBase
     {
 
-        private static List<NotaFiscal> _notasFiscaisDB;
+        private static List<NotaFiscal> _notasFiscaisDB = new List<NotaFiscal>();
         private static int _numeroNota = 1;
 
         [HttpPost]
