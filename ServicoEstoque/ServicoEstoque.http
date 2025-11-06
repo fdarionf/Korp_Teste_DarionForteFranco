@@ -1,0 +1,23 @@
+### TESTE 1: Cadastrar um novo produto (POST)
+# (Isso vai chamar seu método [HttpPost])
+POST https://localhost:7018/api/produtos
+Content-Type: application/json
+{
+  "codigo": 101,
+  "descricao": "Parafuso Sextavado",
+  "saldo": 50
+}
+
+###
+# (O '###' acima separa as requisições)
+###
+
+### TESTE 2: Buscar o produto que acabamos de criar (GET)
+# (Isso vai chamar seu método [HttpGet])
+GET https://localhost:7018/api/produtos/101
+
+###
+
+### TESTE 3: Buscar um produto que não existe (GET)
+# (Isso deve retornar um 404 Not Found)
+GET https://localhost:7018/api/produtos/999
