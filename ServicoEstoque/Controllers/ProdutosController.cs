@@ -19,7 +19,7 @@ namespace ServicoEstoque.Controllers
             return CreatedAtAction(nameof(GetProdutoPorCodigo), new { codigo = produto.Codigo }, produto);
         }
 
-        [HttpGet("{codigo}")] // Responde a GET "api/produtos/123"
+        [HttpGet("{codigo}")]
         public IActionResult GetProdutoPorCodigo(int codigo)
         {
             var ProductFound = _productsDB.FirstOrDefault(p => p.Codigo == codigo);
@@ -29,6 +29,25 @@ namespace ServicoEstoque.Controllers
                 return NotFound();
             }
             return Ok(ProductFound);
+        }
+
+        [HttpPost("{codigo}/debitar-estoque")]
+        public IActionResult DebitarEstoque(int codigo, [FromBody] DebitoRequest request)
+        {
+            var produto = _productsDB.FirstOrDefault(p => p.Codigo == codigo);
+            if (produto == null)
+            {
+                return NotFound("Produto não encontrado.");
+            }
+
+            if (produto.Saldo < request.Quantidade)
+            {
+                return BadRequest("Estoque insuficiente.");
+            }
+
+            produto.Saldo = produto.Saldo - request.Quantidade;
+
+            return Ok(produto);
         }
     }
 }

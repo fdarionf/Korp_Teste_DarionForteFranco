@@ -1,45 +1,48 @@
-### TESTE 1: Cadastrar a primeira Nota Fiscal (POST)
-# (Isso deve criar a Nota Fiscal de número 1)
+### TESTE 1: Cadastrar um produto (Estoque)
+POST https://localhost:7018/api/produtos
+Content-Type: application/json
+
+{
+  "codigo": 101,
+  "descricao": "Produto A",
+  "saldo": 10
+}
+
+### TESTE 2: Cadastrar uma Nota Fiscal (Faturamento)
 POST https://localhost:7049/api/notasfiscais
 Content-Type: application/json
 
 [
   {
     "codigoProduto": 101,
-    "quantidade": 2,
-    "descricaoProduto": "Parafuso Sextavado"
-  },
-  {
-    "codigoProduto": 102,
-    "quantidade": 5,
-    "descricaoProduto": "Porca"
+    "quantidade": 3,
+    "descricaoProduto": "Produto A"
   }
 ]
 
-###
-### TESTE 2: Buscar a Nota Fiscal número 1 (GET)
-# (Isso deve retornar a nota que acabamos de criar)
+### TESTE 3: IMPRIMIR A NOTA (MAIN)
+POST https://localhost:7049/api/notasfiscais/1/imprimir
+
+### TESTE 4: Verificar o Status da Nota (Faturamento)
 GET https://localhost:7049/api/notasfiscais/1
 
-###
-### TESTE 3: Cadastrar a segunda Nota Fiscal (POST)
-# (Isso deve criar a Nota Fiscal de número 2 - testando a sequência)
+### TESTE 5: Verificar o Saldo do Produto (Estoque)
+GET https://localhost:7018/api/produtos/101
+
+### TESTE 6: Tentar imprimir a nota JÁ FECHADA
+POST https://localhost:7049/api/notasfiscais/1/imprimir
+
+### TESTE 7: Tentar imprimir uma nota com ESTOQUE INSUFICIENTE
 POST https://localhost:7049/api/notasfiscais
 Content-Type: application/json
 
 [
   {
-    "codigoProduto": 205,
-    "quantidade": 10,
-    "descricaoProduto": "Arruela"
+    "codigoProduto": 101,
+    "quantidade": 50,
+    "descricaoProduto": "Produto A"
   }
 ]
 
-###
-### TESTE 4: Buscar a Nota Fiscal número 2 (GET)
-GET https://localhost:7049/api/notasfiscais/2
-
-###
-### TESTE 5: Buscar uma nota que não existe (GET)
-# (Isso deve retornar 404 Not Found)
-GET https://localhost:7049/api/notasfiscais/999
+### TESTE 8: Tentar imprimir a Nota 2
+POST https://localhost:7049/api/notasfiscais/2/imprimir

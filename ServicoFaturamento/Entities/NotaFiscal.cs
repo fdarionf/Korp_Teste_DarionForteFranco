@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ServicoFaturamento.Entities.Enums;
+using System.Collections.Generic;
 
 namespace ServicoFaturamento.Entities
 {
