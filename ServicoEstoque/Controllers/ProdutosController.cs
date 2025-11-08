@@ -49,5 +49,11 @@ namespace ServicoEstoque.Controllers
 
             return Ok(produto);
         }
+
+        [HttpGet]
+        public IActionResult GetTodosOsProdutos()
+        {
+            return Ok(_productsDB);
+        }
     }
 }

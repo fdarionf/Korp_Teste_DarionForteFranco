@@ -87,5 +87,11 @@ namespace ServicoFaturamento.Controllers
 
             return Ok(notaParaImprimir);
         }
+
+        [HttpGet]
+        public IActionResult GetTodasNotas()
+        {
+            return Ok(_notasFiscaisDB);
+        }
     }
 }
