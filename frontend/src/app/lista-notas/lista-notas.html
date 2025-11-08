@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Minhas Notas Fiscais</h2>
+
+  <button type="button" routerLink="/cadastro-nota">Cadastrar Nota</button>
+
+  <hr>
+
+  <div *ngIf="notas.length === 0">
+    <p>Nenhuma nota fiscal cadastrada ainda.</p>
+  </div>
+
+  <table *ngIf="notas.length > 0">
+    <thead>
+      <tr>
+        <th>Número da Nota</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let nota of notas">
+        
+        <td>
+          <a [routerLink]="['/notas', nota.numeracao]">
+            Nota Nº {{ nota.numeracao }}
+          </a>
+        </td>
+
+        <td>
+          <span *ngIf="nota.status === 0">Aberta</span>
+          <span *ngIf="nota.status === 1">Fechada</span>
+        </td>
+
+        <td>
+          <button *ngIf="nota.status === 0" (click)="onImprimir(nota.numeracao)">
+            Imprimir
+          </button>
+
+          <span *ngIf="nota.status === 1">-</span>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>

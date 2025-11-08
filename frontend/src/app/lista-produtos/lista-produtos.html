@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Meus Produtos</h2>
+  <button type="button" routerLink="/cadastro-produto">Cadastrar Produto</button>
+
+  <div *ngIf="produtos.length === 0">
+    <p>Nenhum produto cadastrado ainda.</p>
+  </div>
+
+  <table *ngIf="produtos.length > 0">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th>Saldo (Estoque)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <td>{{ produto.codigo }}</td>
+        <td>{{ produto.descricao }}</td>
+        <td>{{ produto.saldo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

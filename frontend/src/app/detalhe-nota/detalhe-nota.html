@@ -1,0 +1,28 @@
+<div class="container">>
+  <div *ngIf="nota">
+
+    <h2>Detalhe da Nota Nº {{ nota.numeracao }}</h2>
+
+    <p>
+      <strong>Status:</strong>
+      <span *ngIf="nota.status === 0">Aberta</span>
+      <span *ngIf="nota.status === 1">Fechada</span>
+    </p>
+
+    <h3>Itens:</h3>
+    <ul>
+      <li *ngFor="let item of nota.listaProdutos">
+        {{ item.quantidade }}x - {{ item.descricaoProduto }} (Cód: {{ item.codigoProduto }})
+      </li>
+    </ul>
+
+    <button *ngIf="nota.status === 0" (click)="imprimir()">
+      Imprimir Nota (Mudar para Fechada)
+    </button>
+
+    <p *ngIf="nota.status === 1">
+      Esta nota já foi impressa e está Fechada.
+    </p>
+
+  </div>
+</div>

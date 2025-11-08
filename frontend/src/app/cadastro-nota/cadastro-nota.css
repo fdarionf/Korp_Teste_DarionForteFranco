@@ -1,0 +1,11 @@
+button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.item-row {
+  border: 1px solid #ddd; /* Uma borda sutil em volta */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 15px; /* Espaçamento interno */
+  margin-bottom: 20px; /* Espaço ENTRE os cartões de item */
+  background-color: #d6cbcb; /* Um fundo levemente diferente */
+}

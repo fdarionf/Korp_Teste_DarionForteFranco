@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Cadastro de Produto</h2>
+
+  <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="codigo">Código:</label>
+      <input id="codigo" type="number" formControlName="codigo">
+    </div>
+
+    <div>
+      <label for="descricao">Descrição:</label>
+      <input id="descricao" type="text" formControlName="descricao">
+    </div>
+
+    <div>
+      <label for="saldo">Saldo (Estoque):</label>
+      <input id="saldo" type="number" formControlName="saldo">
+    </div>
+
+    <button type="submit">Salvar Produto</button>
+
+  </form>
+</div>

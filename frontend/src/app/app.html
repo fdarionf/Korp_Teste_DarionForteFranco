@@ -1,0 +1,7 @@
+<nav *ngIf="currentUrl() !== '/'">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Início</a>
+  <a routerLink="/lista-produtos" routerLinkActive="active">Ver Produtos</a>
+  <a routerLink="/notas" routerLinkActive="active">Ver Notas</a>
+</nav>
+
+<router-outlet (activate)="onRouteActivate($event)"></router-outlet>
