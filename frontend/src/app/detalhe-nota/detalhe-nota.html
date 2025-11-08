@@ -16,8 +16,8 @@
       </li>
     </ul>
 
-    <button *ngIf="nota.status === 0" (click)="imprimir()">
-      Imprimir Nota (Mudar para Fechada)
+    <button type="button" *ngIf="nota.status === 0" (click)="imprimir()">
+      Imprimir Nota!
     </button>
 
     <p *ngIf="nota.status === 1">
