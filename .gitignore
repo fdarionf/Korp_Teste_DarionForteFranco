@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Ignorar "lixo" do Frontend (Angular / Node.js)
+# O / no início é importante: significa "a pasta /frontend/ que está na raiz"
+
+/frontend/node_modules/
+/frontend/.angular/
+/frontend/dist/
+/frontend/*.log
+/frontend/.vscode/
