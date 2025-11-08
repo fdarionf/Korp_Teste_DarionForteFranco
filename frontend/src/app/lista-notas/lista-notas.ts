@@ -17,10 +17,9 @@ export class ListaNotas implements OnInit {
   constructor(private notaFiscalService: NotaFiscalService) { }
 
   ngOnInit(): void {
-    this.carregarNotas(); // 1. Movido para um método separado
+    this.carregarNotas();
   }
 
-  // Método para carregar (ou recarregar) as notas da API
   carregarNotas(): void {
     this.notaFiscalService.getNotas()
       .subscribe({
@@ -34,14 +33,11 @@ export class ListaNotas implements OnInit {
       });
   }
 
-  // --- 2. ADICIONE ESTE MÉTODO ---
-  // Será chamado pelo botão "Imprimir"
   onImprimir(numeroNota: number): void {
     this.notaFiscalService.imprimirNota(numeroNota)
       .subscribe({
         next: (resposta: any) => {
           alert('Nota impressa com sucesso! Status alterado para "Fechada".');
-          // 3. Recarrega a lista da API para mostrar a mudança
           this.carregarNotas(); 
         },
         error: (erro: any) => {

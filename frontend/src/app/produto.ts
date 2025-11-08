@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-// 1. Importe o HttpClient (o telefone)
 import { HttpClient } from '@angular/common/http';
-
 @Injectable({
   providedIn: 'root'
 })

@@ -1,10 +1,9 @@
-/* Uma barra de navegação simples, clara e com altura fixa */
 nav {
-  display: flex; /* Alinha os links */
-  justify-content: center; /* Centraliza os links */
-  align-items: center; /* Centraliza verticalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(235, 227, 227, 0.438);
-  height: 60px; /* Altura fixa */
+  height: 60px;
   padding: 0 20px;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.589);
@@ -28,8 +27,6 @@ nav a.active {
   color: white;
 }
 
-/* Esconde o link "Início" em todas as páginas
-   (Como você sugeriu, ele não é necessário) */
 nav a[routerLink="/"].active {
   display: none;
 }

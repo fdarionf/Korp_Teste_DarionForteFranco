@@ -3,9 +3,9 @@ button:not(:last-child) {
 }
 
 .item-row {
-  border: 1px solid #ddd; /* Uma borda sutil em volta */
-  border-radius: 8px; /* Cantos arredondados */
-  padding: 15px; /* Espaçamento interno */
-  margin-bottom: 20px; /* Espaço ENTRE os cartões de item */
-  background-color: #d6cbcb; /* Um fundo levemente diferente */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #d6cbcb;
 }

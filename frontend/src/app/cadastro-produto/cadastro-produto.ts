@@ -23,9 +23,7 @@ export class CadastroProduto {
 
     this.produtoService.salvarProduto(this.produtoForm.value)
       .subscribe({
-        // O '.subscribe()' "escuta" a resposta da API
-        
-        // Em caso de SUCESSO:
+
         next: (resposta: any) => {
           console.log('Produto salvo com sucesso!', resposta);
           alert('Produto salvo com sucesso!');
