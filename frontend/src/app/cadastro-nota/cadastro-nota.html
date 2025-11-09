@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Cadastro de Nota Fiscal</h2>
+  <h2>Cadastro NFC-e</h2>
 
   <form [formGroup]="notaForm" (ngSubmit)="onSubmit()">
 
@@ -9,22 +9,17 @@
       <div *ngFor="let item of itens.controls; let i = index">
 
         <div [formGroupName]="i" class="item-row">
-
           <label>Cód. Produto:</label>
           <input type="number" formControlName="codigoProduto" (blur)="onCodigoBlur(i)">
-          <label>descricao:</label>
+          <label>Descrição:</label>
           <input type="text" formControlName="descricaoProduto">
-
           <label>Quantidade:</label>
           <input type="number" formControlName="quantidade">
-
         </div>
       </div>
     </div>
 
     <button type="button" (click)="adicionarItem()">Adicionar Novo Item</button>
-
     <button type="submit">Salvar Nota Fiscal</button>
-
   </form>
 </div>
